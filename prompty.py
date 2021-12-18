@@ -8,7 +8,10 @@ from tkinter.messagebox import showerror
 
 
 if platform.system() is 'Windows':
-    if platform.release >= '6':
+    __vista = platform.release == 'Vista'
+    __supported = platform.release >= '6'
+    
+    if __vista or __supported:
         init()
         if not isatty:
             system("title WinPrompty")
